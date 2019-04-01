@@ -1,9 +1,14 @@
 
 const express = require('express'); //Requisition of "express" module.
 const bodyParser = require('body-parser'); //Module to convert the body in json. 
+const mongoose = require('mongoose'); //Module to connect at mongoDB. 
 
 const app = express(); //Add the "express" module in a variable (to start it).
 const router = express.Router(); //Starting the route that can be used.
+
+// Connect to data base
+mongoose.connect('mongodb://localhost:27017/practice-node', {useNewUrlParser: true});
+mongoose.set('useCreateIndex', true);
 
 // Loading routers.
 const indexRoute = require('./routes/index-route');
