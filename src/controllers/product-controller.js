@@ -9,7 +9,7 @@ exports.get = (req, res, next) => {
 		}).catch(e => {
 			res.status(400).send(e);
 		});
-}
+};
 
 exports.getBySlug = (req, res, next) => {
 	Product
@@ -22,7 +22,7 @@ exports.getBySlug = (req, res, next) => {
 		}).catch(e => {
 			res.status(400).send(e);
 		});
-}
+};
 
 exports.getById = (req, res, next) => {
 	Product
@@ -32,7 +32,7 @@ exports.getById = (req, res, next) => {
 		}).catch(e => {
 			res.status(400).send(e);
 		});
-}
+};
 
 exports.getByTag = (req, res, next) => {
 	Product
@@ -45,7 +45,7 @@ exports.getByTag = (req, res, next) => {
 		}).catch(e => {
 			res.status(400).send(e);
 		});
-}
+};
 
 exports.post = (req, res, next) => {
 	var product = new Product(req.body);
@@ -85,5 +85,16 @@ exports.put = (req, res, next) => {
 };
 
 exports.delete = (req, res, next) => {
-	res.status(200).send(req.body);
+	Product
+		.findOneAndRemove(req.body.id)
+		.then(x => {
+			res.status(200).send({
+				message: 'Produto removido com sucesso.'
+			});
+		}).catch(e => {
+			res.status(400).send({
+				message: 'Falha ao remover o produto.',
+				data: e
+			});
+		});
 };
