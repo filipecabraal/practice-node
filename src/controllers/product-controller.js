@@ -86,7 +86,7 @@ exports.put = (req, res, next) => {
 
 exports.delete = (req, res, next) => {
 	Product
-		.findOneAndRemove(req.body.id)
+		.findOneAndRemove(req.params.id)
 		.then(x => {
 			res.status(200).send({
 				message: 'Produto removido com sucesso.'
