@@ -12,6 +12,7 @@ mongoose.set('useCreateIndex', true);
 
 // Loading models.
 const Product = require('./models/product');
+const Costumer = require('./models/costumer');
 
 // Loading routers.
 const indexRoute = require('./routes/index-route');
