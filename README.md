@@ -11,3 +11,8 @@ First we need install the last version of <a href="http://nodejs.org" target="bl
 
 * Step two:
 Inside your repository run the command "npm install" to include node modules that to be used in the future.
+
+## Start server
+
+* Step three:
+If you need start the server and you don't know how do this, check the package.json file and look for scripts scope. There are this command: "start", then to begin only run npm + start.
