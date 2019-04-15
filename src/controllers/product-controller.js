@@ -1,5 +1,3 @@
-const mongoose = require('mongoose');
-const Product = mongoose.model('Product');
 const ValidationContract = require('../validators/validator');
 const repository = require('../repositories/product-repository');
 
@@ -65,8 +63,9 @@ exports.post = async(req, res, next) => {
 			message: 'Produto cadastrado com sucesso.'
 		});
 	} catch(e){
+		console.log(e);
 		res.status(500).send({
-			message: 'Falha ao processar sua requisição'
+			message: 'Falha ao processar sua requisição' 
 		});	
 	}
 };

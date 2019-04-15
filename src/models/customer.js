@@ -11,9 +11,9 @@ const schema = new Schema({
 		required: true
 	},	
 	password: {
-		type: Number,
+		type: String,
 		required: true
 	}
 });
 
-module.exports = mongoose.model('Costumer', schema);
+module.exports = mongoose.model('Customer', schema);

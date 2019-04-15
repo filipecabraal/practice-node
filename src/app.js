@@ -12,16 +12,19 @@ mongoose.set('useCreateIndex', true);
 
 // Loading models.
 const Product = require('./models/product');
-const Costumer = require('./models/costumer');
+const Customer = require('./models/customer');
+const Order = require('./models/order');
 
 // Loading routers.
 const indexRoute = require('./routes/index-route');
 const productRoute = require('./routes/product-route');
+const customerRoute = require('./routes/customer-route');
 
 app.use(bodyParser.json()); // All content of the body converted in json.
 app.use(bodyParser.urlencoded({extended: false})); // Adjust URL.
 
 app.use('/', indexRoute); // Set the route to get on app.
 app.use('/products', productRoute); // Set the route to post on app.
+app.use('/customers', customerRoute);
 
 module.exports = app; // Export the application.
