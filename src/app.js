@@ -1,4 +1,3 @@
-
 const express = require('express'); //Requisition of "express" module.
 const bodyParser = require('body-parser'); //Module to convert the body in json. 
 const mongoose = require('mongoose'); //Module to connect at mongoDB. 
@@ -19,6 +18,7 @@ const Order = require('./models/order');
 const indexRoute = require('./routes/index-route');
 const productRoute = require('./routes/product-route');
 const customerRoute = require('./routes/customer-route');
+const orderRoute = require('./routes/order-route');
 
 app.use(bodyParser.json()); // All content of the body converted in json.
 app.use(bodyParser.urlencoded({extended: false})); // Adjust URL.
@@ -26,5 +26,6 @@ app.use(bodyParser.urlencoded({extended: false})); // Adjust URL.
 app.use('/', indexRoute); // Set the route to get on app.
 app.use('/products', productRoute); // Set the route to post on app.
 app.use('/customers', customerRoute);
+app.use('/orders', orderRoute);
 
 module.exports = app; // Export the application.
